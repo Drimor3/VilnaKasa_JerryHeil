@@ -16,7 +16,7 @@ window.onload = () => {
     arrowleft.drawPolygon(arrowLeftN);
     arrowleft.endFill();
 
-    let arrowRightN =[350, 350, 300, 280, 300, 320, 210, 320, 210, 390, 300, 390, 300, 430]
+    let arrowRightN =[700, 525, 600, 420, 600, 482, 420, 480, 420, 585, 600, 585, 600, 645]
     arrowright.lineStyle(2, 0xFEEB77, 1);
     arrowright.beginFill(0x650A5A, 1);
     arrowright.drawPolygon(arrowRightN);
@@ -59,16 +59,16 @@ window.onload = () => {
     ticker.start();
 
     let PW = PIXI.Sprite.from('wall left.png');
-    PW.height = 10;
-    PW.width = 50;
-    PW.position.x = 175;
-    PW.position.y = 20;
+    PW.height = 15;
+    PW.width = 100;
+    PW.position.x = 350;
+    PW.position.y = 30;
 
     let EW = PIXI.Sprite.from('right wall.png');
-    EW.height = 10;
-    EW.width = 50;
-    EW.position.x = 175;
-    EW.position.y = 680;
+    EW.height = 15;
+    EW.width = 100;
+    EW.position.x = 350;
+    EW.position.y = 1020;
 
 
     const GC = new PIXI.Container();
@@ -81,10 +81,10 @@ window.onload = () => {
     function createSquare() {
         let square = PIXI.Sprite.from('square.png');
         squareArr.push(square)
-        square.height = 20;
-        square.width = 20;
-        square.position.x = 190;
-        square.position.y = 340;
+        square.height = 40;
+        square.width = 40;
+        square.position.x = 380;
+        square.position.y = 510;
         app.stage.addChild(square);
 
         let arrmove = [-2, 2, 3, -3 , 2.1, -2.1];
@@ -105,7 +105,7 @@ window.onload = () => {
 //21 то є очко
     ticker.add(() => {
         squareArr.forEach((square, i)=>{
-            if(square.position.y < -20 || square.position.y > 720){
+            if(square.position.y < -40 || square.position.y > 1090){
                 squareArr.splice(i, 1)
                 app.stage.removeChild(square);
                 createSquare();
@@ -114,7 +114,7 @@ window.onload = () => {
     })
     //rickoshet
     ticker.add(()=>{
-        if(squareArr[0].position.x < 0 || squareArr[0].position.x > 380){
+        if(squareArr[0].position.x < 0 || squareArr[0].position.x > 760){
             numbersX[0] *= -1
         }
     })
@@ -227,8 +227,8 @@ window.onload = () => {
         if(PW.position.x < 0){
             PW.position.x = 0
         }
-        else if(PW.position.x > 350){
-            PW.position.x = 350
+        else if(PW.position.x > 700){
+            PW.position.x = 700
         }
     })
 }
