@@ -1,7 +1,7 @@
 window.onload = () => {
     let app = new PIXI.Application({
-        width: 400,
-        height: 700
+        width: 800,
+        height: 1050
     })
 
     let speedX = 0;
@@ -10,7 +10,7 @@ window.onload = () => {
     const arrowleft = new PIXI.Graphics();
     const arrowright = new PIXI.Graphics();
 
-    let arrowLeftN =[50, 350, 100, 280, 100, 320, 190, 320, 190, 390, 100, 390, 100, 430]
+    let arrowLeftN =[100, 525, 200, 420, 200, 480, 380, 480, 380, 585, 200, 585, 200, 645]
     arrowleft.lineStyle(2, 0xFEEB77, 1);
     arrowleft.beginFill(0x650A5A, 1);
     arrowleft.drawPolygon(arrowLeftN);
