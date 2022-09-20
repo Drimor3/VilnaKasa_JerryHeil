@@ -7,6 +7,43 @@ window.onload = () => {
     let speedX = 0;
     let i =0;
 
+    const arrowleft = new PIXI.Graphics();
+    const arrowright = new PIXI.Graphics();
+
+    let arrowLeftN =[50, 350, 100, 280, 100, 320, 190, 320, 190, 390, 100, 390, 100, 430]
+    arrowleft.lineStyle(2, 0xFEEB77, 1);
+    arrowleft.beginFill(0x650A5A, 1);
+    arrowleft.drawPolygon(arrowLeftN);
+    arrowleft.endFill();
+
+    let arrowRightN =[350, 350, 300, 280, 300, 320, 210, 320, 210, 390, 300, 390, 300, 430]
+    arrowright.lineStyle(2, 0xFEEB77, 1);
+    arrowright.beginFill(0x650A5A, 1);
+    arrowright.drawPolygon(arrowRightN);
+    arrowright.endFill();
+
+    arrowleft.interactive = true;
+    arrowleft.buttonMode = true;
+    arrowleft.on('pointerdown', moveL);
+    arrowleft.on('pointerup', moveLS);
+    arrowleft.on('pointerdown', moveR);
+    arrowleft.on('pointerup', moveRS);
+
+    function moveL(){
+        speedX = -3;
+    }
+
+    function moveLS(){
+        speedX = 0;
+    }
+    function moveR(){
+        speedX = 3;
+    }
+
+    function moveRS(){
+        speedX = 0;
+    }
+
     let squareArr = [];
     let numbersY = [];
     let numbersX = [];
@@ -33,7 +70,7 @@ window.onload = () => {
 
     document.body.appendChild(app.view)
 
-    GC.addChild(PW, EW);
+    GC.addChild(arrowleft, arrowright, PW, EW);
     app.stage.addChild(GC)
 
     function createSquare() {
@@ -120,8 +157,6 @@ window.onload = () => {
         }
     })
 
-
-
     //tut move it
     ticker.add(()=>{
         PW.position.x += speedX
@@ -183,4 +218,12 @@ window.onload = () => {
 
     })
 
+    ticker.add(()=>{
+        if(PW.position.x < 0){
+            PW.position.x = 0
+        }
+        else if(PW.position.x > 350){
+            PW.position.x = 350
+        }
+    })
 }
