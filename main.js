@@ -24,10 +24,12 @@ window.onload = () => {
 
     arrowleft.interactive = true;
     arrowleft.buttonMode = true;
+    arrowright.interactive = true;
+    arrowright.buttonMode = true;
     arrowleft.on('pointerdown', moveL);
     arrowleft.on('pointerup', moveLS);
-    arrowleft.on('pointerdown', moveR);
-    arrowleft.on('pointerup', moveRS);
+    arrowright.on('pointerdown', moveR);
+    arrowright.on('pointerup', moveRS);
 
     function moveL(){
         speedX = -3;
