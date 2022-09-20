@@ -24,12 +24,15 @@ window.onload = () => {
 
     arrowleft.interactive = true;
     arrowleft.buttonMode = true;
+
     arrowright.interactive = true;
     arrowright.buttonMode = true;
-    arrowleft.on('pointerdown', moveL);
-    arrowleft.on('pointerup', moveLS);
-    arrowright.on('pointerdown', moveR);
-    arrowright.on('pointerup', moveRS);
+
+    arrowleft.on('touchstart', moveL);
+    arrowleft.on('touchend', moveLS);
+
+    arrowright.on('touchstart', moveR);
+    arrowright.on('touchend', moveRS);
 
     function moveL(){
         speedX = -3;
